@@ -82,13 +82,13 @@ public class Bomb extends Image{
 			
 	      Rectangle r2=new Rectangle(p.getX(), p.getY(), 100, 100);
 			
-			if(r1.overlaps(r2)){
-			
-				System.out.println("Colision!");
-				System.out.println("Perdiste");
-				images.add(new Image(new Texture("gameover.png")));
-			
-			}
+//			if(r1.overlaps(r2)){
+//			
+//				System.out.println("Colision!");
+//				System.out.println("Perdiste");
+//				images.add(new Image(new Texture("gameover.png")));
+//			
+//			}
 			
 //			if(this.getX()<p.getX()+50
 //					&& this.getX()+50>p.getX()
