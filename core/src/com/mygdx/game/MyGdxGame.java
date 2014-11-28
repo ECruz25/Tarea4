@@ -93,7 +93,7 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 	
 	void addBomb(){
     	
-        stage.addActor(new Bomb(new Texture("bomba01.png")));
+        stage.addActor(new Bomb(corredor));
        
     }
 	
@@ -112,23 +112,24 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 	void addPauseScreen(){
 		
 		menu.addActor(new Image(new Texture("pause.png")));
+		music.stop();
 		
 	}
 	
 	void resumeGame(){
 		
 		menu.clear();
+		gameStatus = GAME_RUNNING;
 		
 	}
 	
 	
-
 	@Override
 	public void render () {
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         
-        //music.play();
+        music.play();
    
         stage.draw();
         stage.act();
@@ -153,7 +154,7 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 
         }
         
-        if(frame%200000==0){
+        if(frame%2000000000==0){
         	
         	addBomb();
         	
@@ -225,7 +226,7 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 		
 		else if(character == 'p' || character == 'P'){
 			
-			resume();
+			resumeGame();
 			
 		}
 		
@@ -258,12 +259,7 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 	
 	public void pauseGame() {
 		
-		try {
-			stage.wait();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			System.out.println("Error: " + e.getMessage());
-		}
+		
         gameStatus = GAME_PAUSED;
    
 	}
@@ -275,6 +271,5 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
         stage.clear();
     
 	}
-	
 	
 }
