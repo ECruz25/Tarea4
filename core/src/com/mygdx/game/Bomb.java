@@ -79,11 +79,15 @@ public class Bomb extends Image{
 	      }
 	      
 	      Rectangle r1=new Rectangle(this.getX(), this.getY(), 100, 100);
-			Rectangle r2=new Rectangle(p.getX(), p.getY(), 100, 100);
+			
+	      Rectangle r2=new Rectangle(p.getX(), p.getY(), 100, 100);
+			
 			if(r1.overlaps(r2)){
+			
 				System.out.println("Colision!");
 				System.out.println("Perdiste");
 				images.add(new Image(new Texture("gameover.png")));
+			
 			}
 			
 //			if(this.getX()<p.getX()+50
@@ -104,8 +108,8 @@ public class Bomb extends Image{
 		// TODO Auto-generated method stub
 		super.draw(batch, parentAlpha);
 		
-//		images.get(dibujo_actual).setHeight(150);
-//		images.get(dibujo_actual).setWidth(150);
+		images.get(dibujo_actual).setHeight(150);
+		images.get(dibujo_actual).setWidth(150);
 		
 		images.get(dibujo_actual).draw(batch,parentAlpha);
 
